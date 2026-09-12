@@ -1,0 +1,5 @@
+{
+  "synthetic": true,
+  "description": "全部记录为固定时间和人工构造的合成数据；不含用户健康记录。",
+  "generator": "scripts/make-fixtures.py"
+}

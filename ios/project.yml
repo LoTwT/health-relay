@@ -1,0 +1,51 @@
+name: HealthRelay
+options:
+  minimumXcodeGenVersion: 2.46.0
+  deploymentTarget:
+    iOS: '26.0'
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    TARGETED_DEVICE_FAMILY: '1'
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 1
+    GENERATE_INFOPLIST_FILE: NO
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+targets:
+  HealthRelay:
+    type: application
+    platform: iOS
+    sources: [HealthRelay]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.healthrelay.ios
+        INFOPLIST_FILE: HealthRelay/Info.plist
+        CODE_SIGN_ENTITLEMENTS: HealthRelay/HealthRelay.entitlements
+    dependencies:
+      - sdk: HealthKit.framework
+      - sdk: Network.framework
+      - sdk: AVFoundation.framework
+      - sdk: libsqlite3.tbd
+  HealthRelayTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: HealthRelayTests
+      - path: ../fixtures
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.healthrelay.ios.tests
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: HealthRelay
+schemes:
+  HealthRelay:
+    build:
+      targets:
+        HealthRelay: all
+        HealthRelayTests: [test]
+    test:
+      targets: [HealthRelayTests]
