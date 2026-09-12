@@ -1,0 +1,783 @@
+{
+  "dataset": {
+    "datasetId": "11111111-1111-4111-8111-111111111111",
+    "historyStart": "2026-08-09T15:00:00.000Z",
+    "sources": {
+      "sleep": "example.synthetic.watch",
+      "workout": "example.synthetic.watch"
+    }
+  },
+  "cases": [
+    {
+      "name": "negative_distance",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": -1
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "wrong_identity",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000033",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "wrong_source_hash",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "0000000000000000000000000000000000000000000000000000000000000000",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "zero_version",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 0,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "fractional_version",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 1.5,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "overflow_version",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775808,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "unknown_action",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "clearAll",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing_required",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid_offset",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 64801,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "non_millisecond_time",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "overlapping_pause",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                },
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "unknown_exercise",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "MAGIC",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "unknown_warning",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [
+                "MAGIC"
+              ],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "wrong_statistic_unit",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 2700000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0,
+                "kcal": 1
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "inconsistent_pause_duration",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/00000000-0000-0000-0000-000000000032",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "upsert",
+            "payload": {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:50:00.000Z",
+              "startOffsetSeconds": 28800,
+              "endOffsetSeconds": 28800,
+              "source": {
+                "bundleIdentifier": "example.synthetic.watch",
+                "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+                "name": "合成测试来源",
+                "deviceType": "watch",
+                "manufacturer": null,
+                "model": null,
+                "timeZone": null
+              },
+              "recordingMethod": "active",
+              "warnings": [],
+              "sourceUuid": "00000000-0000-0000-0000-000000000032",
+              "appleActivityType": "running",
+              "exerciseType": "RUNNING",
+              "durationMs": 1000,
+              "indoor": false,
+              "pauses": [
+                {
+                  "start": "2026-08-10T15:20:00.000Z",
+                  "end": "2026-08-10T15:25:00.000Z"
+                }
+              ],
+              "distance": {
+                "state": "value",
+                "metres": 5000.0
+              },
+              "activeEnergy": {
+                "state": "value",
+                "kcal": 325.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid_delete_identity",
+      "group": {
+        "changeSetId": "00000000-0000-0000-0000-000000000384",
+        "changes": [
+          {
+            "entityId": "hr1/11111111-1111-4111-8111-111111111111/workout/not-a-uuid",
+            "version": 9223372036854775806,
+            "kind": "workout",
+            "action": "delete",
+            "payload": null
+          }
+        ]
+      }
+    }
+  ]
+}

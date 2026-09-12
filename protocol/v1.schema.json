@@ -1,0 +1,859 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:health-relay:protocol:1",
+  "title": "health-relay protocol v1",
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "bundleIdentifier": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "sourceKey": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "deviceType": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "manufacturer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "timeZone": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "bundleIdentifier",
+        "sourceKey",
+        "name",
+        "deviceType",
+        "manufacturer",
+        "model",
+        "timeZone"
+      ],
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "object",
+      "properties": {
+        "sleep": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "workout": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sleep",
+        "workout"
+      ],
+      "additionalProperties": false
+    },
+    "interval": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "type": {
+          "enum": [
+            "sleeping",
+            "light",
+            "deep",
+            "rem",
+            "awake"
+          ]
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "sleep": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "startOffsetSeconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -64800,
+              "maximum": 64800
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "endOffsetSeconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -64800,
+              "maximum": 64800
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "recordingMethod": {
+          "enum": [
+            "automatic",
+            "active",
+            "manual",
+            "unknown"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z_]+$"
+          },
+          "maxItems": 100
+        },
+        "anchorSampleUuid": {
+          "$ref": "#/$defs/uuid"
+        },
+        "sampleUuids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/uuid"
+          },
+          "minItems": 1,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stage"
+          },
+          "minItems": 1,
+          "maxItems": 10000
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "startOffsetSeconds",
+        "endOffsetSeconds",
+        "source",
+        "recordingMethod",
+        "warnings",
+        "anchorSampleUuid",
+        "sampleUuids",
+        "stages"
+      ],
+      "additionalProperties": false
+    },
+    "workout": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "startOffsetSeconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -64800,
+              "maximum": 64800
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "endOffsetSeconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -64800,
+              "maximum": 64800
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "recordingMethod": {
+          "enum": [
+            "automatic",
+            "active",
+            "manual",
+            "unknown"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z_]+$"
+          },
+          "maxItems": 100
+        },
+        "sourceUuid": {
+          "$ref": "#/$defs/uuid"
+        },
+        "appleActivityType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "exerciseType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "indoor": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pauses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/interval"
+          },
+          "maxItems": 10000
+        },
+        "distance": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "const": "unavailable"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "const": "value"
+                },
+                "metres": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "state",
+                "metres"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "activeEnergy": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "const": "unavailable"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "const": "value"
+                },
+                "kcal": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "state",
+                "kcal"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "startOffsetSeconds",
+        "endOffsetSeconds",
+        "source",
+        "recordingMethod",
+        "warnings",
+        "sourceUuid",
+        "appleActivityType",
+        "exerciseType",
+        "durationMs",
+        "indoor",
+        "pauses",
+        "distance",
+        "activeEnergy"
+      ],
+      "additionalProperties": false
+    },
+    "change": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "entityId": {
+              "type": "string",
+              "pattern": "^hr1/"
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9223372036854775807
+            },
+            "kind": {
+              "const": "sleep"
+            },
+            "action": {
+              "const": "upsert"
+            },
+            "payload": {
+              "$ref": "#/$defs/sleep"
+            }
+          },
+          "required": [
+            "entityId",
+            "version",
+            "kind",
+            "action",
+            "payload"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "entityId": {
+              "type": "string",
+              "pattern": "^hr1/"
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9223372036854775807
+            },
+            "kind": {
+              "const": "workout"
+            },
+            "action": {
+              "const": "upsert"
+            },
+            "payload": {
+              "$ref": "#/$defs/workout"
+            }
+          },
+          "required": [
+            "entityId",
+            "version",
+            "kind",
+            "action",
+            "payload"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "entityId": {
+              "type": "string",
+              "pattern": "^hr1/"
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9223372036854775807
+            },
+            "kind": {
+              "enum": [
+                "sleep",
+                "workout"
+              ]
+            },
+            "action": {
+              "const": "delete"
+            }
+          },
+          "required": [
+            "entityId",
+            "version",
+            "kind",
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "changeSet": {
+      "type": "object",
+      "properties": {
+        "changeSetId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/change"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "changeSetId",
+        "changes"
+      ],
+      "additionalProperties": false
+    },
+    "rebuildPlan": {
+      "type": "object",
+      "properties": {
+        "planId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "oldDatasetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "newDatasetId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "historyStart": {
+          "$ref": "#/$defs/time"
+        },
+        "sources": {
+          "$ref": "#/$defs/sources"
+        }
+      },
+      "required": [
+        "planId",
+        "oldDatasetId",
+        "newDatasetId",
+        "historyStart",
+        "sources"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "pair"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "pairingId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "pairingSecret": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "senderId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "senderName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "mode": {
+          "enum": [
+            "normal",
+            "recovery"
+          ]
+        },
+        "datasetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId",
+        "pairingId",
+        "pairingSecret",
+        "senderId",
+        "senderName",
+        "mode",
+        "datasetId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "hello"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "pairId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "pairToken": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "senderId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "receiverId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "mode": {
+          "const": "normal"
+        },
+        "datasetId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "historyStart": {
+          "$ref": "#/$defs/time"
+        },
+        "sources": {
+          "$ref": "#/$defs/sources"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId",
+        "pairId",
+        "pairToken",
+        "senderId",
+        "receiverId",
+        "mode",
+        "datasetId",
+        "historyStart",
+        "sources"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "hello"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "pairId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "pairToken": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "senderId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "receiverId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "mode": {
+          "const": "recovery"
+        },
+        "datasetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId",
+        "pairId",
+        "pairToken",
+        "senderId",
+        "receiverId",
+        "mode",
+        "datasetId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "applyBatch"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "generationId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "batchId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "changeSets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/changeSet"
+          },
+          "minItems": 1,
+          "maxItems": 25
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId",
+        "generationId",
+        "batchId",
+        "changeSets"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "prepareRebuild"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "rebuildPlan": {
+          "$ref": "#/$defs/rebuildPlan"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId",
+        "rebuildPlan"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "finish"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "generationId": {
+          "$ref": "#/$defs/uuid"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId",
+        "generationId"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "unpair"
+        },
+        "requestId": {
+          "$ref": "#/$defs/uuid"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "type",
+        "requestId"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

@@ -1,0 +1,1533 @@
+[
+  {
+    "name": "C06_continuous_midnight",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786402800000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T23:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T23:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C07_inbed_overlap",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786370400000,
+        "endMs": 1786381200000,
+        "value": "inBed",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C08_unspecified",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepUnspecified",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "sleeping"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C08_inbed_only",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "inBed",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [],
+    "warnings": [
+      "NO_SLEEP_EVIDENCE"
+    ],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C09_same_stage_overlap",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786375800000,
+        "endMs": 1786379400000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:30:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:30:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C09_conflicting_sleep",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786375200000,
+        "endMs": 1786376400000,
+        "value": "asleepDeep",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "CONFLICTING_SLEEP_STAGES"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:20:00.000Z",
+              "type": "light"
+            },
+            {
+              "start": "2026-08-10T15:20:00.000Z",
+              "end": "2026-08-10T15:40:00.000Z",
+              "type": "sleeping"
+            },
+            {
+              "start": "2026-08-10T15:40:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [
+      "CONFLICTING_SLEEP_STAGES"
+    ],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C31_awake_conflict",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786382400000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786377600000,
+        "endMs": 1786378800000,
+        "value": "awake",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "CONFLICTING_SLEEP_STAGES",
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      },
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786378800000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T16:20:00.000Z",
+          "end": "2026-08-10T17:20:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "CONFLICTING_SLEEP_STAGES",
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T16:20:00.000Z",
+              "end": "2026-08-10T17:20:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [
+      "CONFLICTING_SLEEP_STAGES",
+      "SLEEP_SPLIT_FOR_UNCERTAINTY"
+    ],
+    "excludedMs": 1200000,
+    "deferred": 0
+  },
+  {
+    "name": "C30_gap_20min",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786378800000,
+        "endMs": 1786382400000,
+        "value": "asleepDeep",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      },
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000002/1786378800000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T16:20:00.000Z",
+          "end": "2026-08-10T17:20:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000002",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T16:20:00.000Z",
+              "end": "2026-08-10T17:20:00.000Z",
+              "type": "deep"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [
+      "SLEEP_SPLIT_FOR_UNCERTAINTY"
+    ],
+    "excludedMs": 1200000,
+    "deferred": 0
+  },
+  {
+    "name": "C30_gap_1ms",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786377600001,
+        "endMs": 1786381200001,
+        "value": "asleepDeep",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      },
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000002/1786377600001",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T16:00:00.001Z",
+          "end": "2026-08-10T17:00:00.001Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000002",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T16:00:00.001Z",
+              "end": "2026-08-10T17:00:00.001Z",
+              "type": "deep"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [
+      "SLEEP_SPLIT_FOR_UNCERTAINTY"
+    ],
+    "excludedMs": 1,
+    "deferred": 0
+  },
+  {
+    "name": "C30_awake_control",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786377600000,
+        "endMs": 1786378800000,
+        "value": "awake",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000003",
+        "startMs": 1786378800000,
+        "endMs": 1786382400000,
+        "value": "asleepDeep",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T17:20:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            },
+            {
+              "start": "2026-08-10T16:00:00.000Z",
+              "end": "2026-08-10T16:20:00.000Z",
+              "type": "awake"
+            },
+            {
+              "start": "2026-08-10T16:20:00.000Z",
+              "end": "2026-08-10T17:20:00.000Z",
+              "type": "deep"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C10_exact_30min",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786379400000,
+        "endMs": 1786383000000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      },
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000002/1786379400000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T16:30:00.000Z",
+          "end": "2026-08-10T17:30:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [
+            "SLEEP_SPLIT_FOR_UNCERTAINTY"
+          ],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000002",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T16:30:00.000Z",
+              "end": "2026-08-10T17:30:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [
+      "SLEEP_SPLIT_FOR_UNCERTAINTY"
+    ],
+    "excludedMs": 1800000,
+    "deferred": 0
+  },
+  {
+    "name": "C10_over_30min",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786379400001,
+        "endMs": 1786383000001,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      },
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000002/1786379400001",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T16:30:00.001Z",
+          "end": "2026-08-10T17:30:00.001Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000002",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T16:30:00.001Z",
+              "end": "2026-08-10T17:30:00.001Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C10_open_deferred",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786379399999,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [],
+    "warnings": [
+      "DEFERRED_OPEN_SLEEP"
+    ],
+    "excludedMs": 0,
+    "deferred": 1
+  },
+  {
+    "name": "C28_closed_without_new_anchor",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786379400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C28_cross_history_start",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-10T19:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786402800000,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T23:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T23:00:00.000Z",
+              "type": "light"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C09_awake_over_unspecified",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "asleepUnspecified",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      },
+      {
+        "uuid": "00000000-0000-0000-0000-000000000002",
+        "startMs": 1786375200000,
+        "endMs": 1786376400000,
+        "value": "awake",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [
+      {
+        "entityId": "hr1/11111111-1111-4111-8111-111111111111/sleep/2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5/00000000-0000-0000-0000-000000000001/1786374000000",
+        "version": 1,
+        "kind": "sleep",
+        "action": "upsert",
+        "payload": {
+          "start": "2026-08-10T15:00:00.000Z",
+          "end": "2026-08-10T16:00:00.000Z",
+          "startOffsetSeconds": null,
+          "endOffsetSeconds": null,
+          "source": {
+            "bundleIdentifier": "example.synthetic.watch",
+            "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+            "name": "合成测试来源",
+            "deviceType": "watch",
+            "manufacturer": null,
+            "model": null,
+            "timeZone": null
+          },
+          "recordingMethod": "automatic",
+          "warnings": [],
+          "anchorSampleUuid": "00000000-0000-0000-0000-000000000001",
+          "sampleUuids": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "stages": [
+            {
+              "start": "2026-08-10T15:00:00.000Z",
+              "end": "2026-08-10T15:20:00.000Z",
+              "type": "sleeping"
+            },
+            {
+              "start": "2026-08-10T15:20:00.000Z",
+              "end": "2026-08-10T15:40:00.000Z",
+              "type": "awake"
+            },
+            {
+              "start": "2026-08-10T15:40:00.000Z",
+              "end": "2026-08-10T16:00:00.000Z",
+              "type": "sleeping"
+            }
+          ]
+        }
+      }
+    ],
+    "warnings": [],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "unknown_is_not_sleep",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786460400000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786377600000,
+        "value": "unknown:99",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [],
+    "warnings": [
+      "UNSUPPORTED_SLEEP_VALUE",
+      "NO_SLEEP_EVIDENCE"
+    ],
+    "excludedMs": 0,
+    "deferred": 0
+  },
+  {
+    "name": "C10_abnormal_36h",
+    "dataset": {
+      "datasetId": "11111111-1111-4111-8111-111111111111",
+      "historyStart": "2026-08-09T15:00:00.000Z",
+      "sources": {
+        "sleep": "example.synthetic.watch",
+        "workout": "example.synthetic.watch"
+      }
+    },
+    "nowMs": 1786518000000,
+    "input": [
+      {
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "startMs": 1786374000000,
+        "endMs": 1786503600001,
+        "value": "asleepCore",
+        "source": {
+          "bundleIdentifier": "example.synthetic.watch",
+          "sourceKey": "2d1f341b806800c00799373dd7295088940e492001d8a4eac4f43608cd6dd7c5",
+          "name": "合成测试来源",
+          "deviceType": "watch",
+          "manufacturer": null,
+          "model": null,
+          "timeZone": null
+        },
+        "recordingMethod": "automatic"
+      }
+    ],
+    "expected": [],
+    "warnings": [
+      "SLEEP_GROUP_TOO_LARGE"
+    ],
+    "excludedMs": 0,
+    "deferred": 0
+  }
+]
